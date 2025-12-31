@@ -1,4 +1,8 @@
 # 🎥 Instagram to AI Avatar Repurposing Workflow (n8n)
+<img width="1224" height="227" alt="image" src="https://github.com/user-attachments/assets/1a7626ce-0bf4-481e-af64-cf0427986a6e" />
+<img width="1230" height="322" alt="image" src="https://github.com/user-attachments/assets/182b14cd-8e75-4708-abf9-bea3397cdb85" />
+<img width="1227" height="262" alt="image" src="https://github.com/user-attachments/assets/b29798e0-8ca6-4c60-9562-5a8b878aac32" />
+
 
 ####  Demo: https://drive.google.com/file/d/1fwel170y11lRth4ub3BX9O_DFr9uExVj/view?usp=sharing
 **Automate the conversion of viral Instagram Reels into original, AI-hosted "Podcast" style videos.**
