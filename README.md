@@ -22,7 +22,7 @@ This n8n workflow scrapes high-performing Instagram content, analyzes the video 
 *   **[n8n](https://n8n.io/):** The workflow orchestration engine.
 *   **[Apify](https://apify.com/):** For Instagram scraping (Actor: `instagram-scraper`).
 *   **[Google Gemini](https://deepmind.google/technologies/gemini/):** For video analysis and transcription using Gemini 2.5pro.
-*   **[OpenAI](https://openai.com/):** Scriptwriting and metadata generation using open 4o mini.
+*   **[OpenAI](https://openai.com/):** Scriptwriting and metadata generation using OpenAI 4o mini.
 *   **[HeyGen](https://www.heygen.com/):** AI Avatar video generation using heygen api.
 *   **Google Workspace:** Sheets (Logging), Drive (Storage), Gmail (Notifications).
 
