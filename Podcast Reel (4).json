@@ -1,0 +1,1577 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c2ed52f1-1987-4692-8b30-9da55e3ae71d",
+              "leftValue": "={{ $json.type }}",
+              "rightValue": "=Video",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -352,
+        224
+      ],
+      "id": "a1934d4d-84c3-49fd-843a-324dc1831b3e",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "likesCount",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f03942f8-dd2f-436f-92f4-d817875056b5",
+      "name": "Sort by Likes4",
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        192,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Rearranging and Downloading Data",
+        "height": 416,
+        "width": 752,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        192
+      ],
+      "typeVersion": 1,
+      "id": "25cabd5a-2b48-4ca2-a4e4-058ece31ce57",
+      "name": "Sticky Note21"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1UjEmks_va1l23DOD25QVWUOKZeDHX-hFGft6nnqGaaI",
+          "mode": "list",
+          "cachedResultName": "Thai-Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UjEmks_va1l23DOD25QVWUOKZeDHX-hFGft6nnqGaaI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 318077156,
+          "mode": "list",
+          "cachedResultName": "Scrapped Video Data (PODCAST)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UjEmks_va1l23DOD25QVWUOKZeDHX-hFGft6nnqGaaI/edit#gid=318077156"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "type": "={{ $json.type }}",
+            "caption": "={{ $json.caption }}",
+            "hashtags": "={{ $json.hashtags }}",
+            "url": "={{ $json.url }}",
+            "commentsCount": "={{ $json.commentsCount }}",
+            "displayUrl": "={{ $json.displayUrl }}",
+            "likesCount": "={{ $json.likesCount }}",
+            "ownerUsername": "={{ $json.ownerUsername }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "caption",
+              "displayName": "caption",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "hashtags",
+              "displayName": "hashtags",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "commentsCount",
+              "displayName": "commentsCount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "displayUrl",
+              "displayName": "displayUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "likesCount",
+              "displayName": "likesCount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ownerUsername",
+              "displayName": "ownerUsername",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0b001fdb-9bd6-4245-acd1-c170718413fd",
+      "name": "Append row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "6gr9PW0MIQBffnHC",
+          "name": "Google Sheets account 10"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "text": "=Analyze this video & its transcript if its there from an Instagram reel. Extract:\n1. Key themes\n2. Emotional tone\n3. Quotes\n4. Central text",
+        "inputType": "binary",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        912,
+        336
+      ],
+      "id": "161b386b-3485-420c-87c4-86ec5fece277",
+      "name": "Analyze video1",
+      "retryOnFail": true,
+      "waitBetweenTries": 4000,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "wgezO66Za43Dp0Mz",
+          "name": "Google Gemini(PaLM) Api account 15"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/apify~instagram-scraper/run-sync-get-dataset-items?token=apify_api_BcedGrtiveoGnzKDBnverw6VNDf15n38h5jq",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"addParentData\": false,\n    \"directUrls\": [\n        \"https://www.instagram.com/selfcare.recipe/\"\n    ],\n    \"enhanceUserSearchWithFacebookPage\": false,\n    \"isUserReelFeedURL\": false,\n    \"isUserTaggedFeedURL\": false,\n    \"resultsLimit\": 2,\n    \"resultsType\": \"stories\",\n    \"searchLimit\": 1,\n    \"searchType\": \"hashtag\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1472,
+        224
+      ],
+      "id": "b515efc3-d806-42ab-b791-51a7293623b1",
+      "name": "Instagram Hashtag Scraper Node1"
+    },
+    {
+      "parameters": {
+        "url": "={{$json.videoUrl}}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        528,
+        336
+      ],
+      "id": "6870344d-6bf6-4a09-a843-773735363cfb",
+      "name": "Download Video"
+    },
+    {
+      "parameters": {
+        "content": "## Scrapping and Filtering Data (PODCAST REEL)",
+        "height": 320,
+        "width": 976,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1600,
+        112
+      ],
+      "typeVersion": 1,
+      "id": "9a1f58e6-4f94-4d7e-bf5f-94f1997b6dbb",
+      "name": "Sticky Note22"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ff31f91f-401d-4100-87df-326e2401d323",
+              "name": "type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            },
+            {
+              "id": "3f43d18d-5122-4e7e-9f60-130894dc93b9",
+              "name": "caption",
+              "value": "={{ $json.caption }}",
+              "type": "string"
+            },
+            {
+              "id": "37dce588-fd30-405d-87b8-8dfc358c5806",
+              "name": "hashtags",
+              "value": "={{ $json.hashtags }}",
+              "type": "array"
+            },
+            {
+              "id": "cc3c6564-89ee-441e-90e1-74fd86afca31",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "bcf8e9bd-eef7-4ffc-8fcc-963774769481",
+              "name": "commentsCount",
+              "value": "={{ $json.commentsCount }}",
+              "type": "number"
+            },
+            {
+              "id": "547f552b-c5f8-4405-804f-2788570a1e3f",
+              "name": "displayUrl",
+              "value": "={{ $json.displayUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "ae25e391-7668-44d9-9925-fa8d187dad49",
+              "name": "likesCount",
+              "value": "={{ $json.likesCount }}",
+              "type": "number"
+            },
+            {
+              "id": "e0bdbc8d-30fc-486e-8294-e04f1779212b",
+              "name": "timestamp",
+              "value": "={{ $json.timestamp }}",
+              "type": "string"
+            },
+            {
+              "id": "98c5322e-1a20-4ccd-9659-ee448e019ed3",
+              "name": "ownerUsername",
+              "value": "={{ $json.ownerUsername }}",
+              "type": "string"
+            },
+            {
+              "id": "f2c3b7f8-9875-4769-af5e-62142ae6d60f",
+              "name": "inputUrl",
+              "value": "={{ $json.inputUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "77619a7e-cf67-4cc6-95d1-fab2ce7b955a",
+              "name": "videoUrl",
+              "value": "={{ $json.videoUrl }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1168,
+        224
+      ],
+      "id": "e793cae1-8de6-4737-965d-ba4865415632",
+      "name": "Data Field Filter2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "39605b57-528b-4cb7-aeed-90650c3aa612",
+              "leftValue": "={{ $json.likesCount }}",
+              "rightValue": 700,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "120af8fa-2b40-4d0f-9d05-3fc63438de8f",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -864,
+        224
+      ],
+      "id": "a419aaa4-749d-4c79-82c7-92a6adeaea2a",
+      "name": "Filter by Likes2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=ROLE:\nYou are a world-class cinematic director and podcast scriptwriter.\n\nYour task: Write a single continuous scene for a 9:16 vertical video that feels like a calm, uninterrupted monologue by one host.\n\n📸 VISUAL CONTEXT:\nThe host (defined by an image prompt in a later step) appears once and remains visually consistent — same outfit, lighting, framing, and background throughout.\nThe camera should stay mostly still (mid-shot or close-up), with only subtle natural movements like breathing, small gestures, or eye shifts.\nThe environment and lighting stay identical to maintain a sense of warmth and continuity.\n\n🧩 CONTENT CONTEXT:\nkey_themes: {{ $json.key_themes }}\nemotional_tone: {{ $json.emotional_tone }}\nquotes: {{ $json.quotes }}\ncentral_text: {{ $json.central_text }}\n\n🎙️ NARRATION RULES:\nWrite one natural, emotionally resonant monologue that captures the essence of the message above.\nThe tone should feel authentic, like a short podcast moment — reflective, relatable, and human.\nThe narration should last around 24–26 seconds when spoken (roughly 60–70 words).\nMaintain natural pacing and flow — it should feel spoken, not read.\nNo visual transitions or scene cuts — it’s one continuous take.\n\n🎧 AUDIO MOOD:\nDescribe a consistent background soundscape (e.g., soft ambient hum, gentle piano, distant nature sounds).\nThe sound should subtly enhance the emotional tone (calm, hopeful, introspective, etc.).\n\n📝 ADDITIONAL OUTPUT (NEW — without changing previous structure):\nAfter providing the Scene Description, Narration, and Audio Mood,\nALSO generate:\n\n**CAPTION:**  \nA short, emotionally relevant caption (1–2 sentences) summarizing the message.\n\n**HASHTAGS:**  \nA list of 7–10 relevant hashtags based on the emotional tone, topic, and social media context.\n\n**VOICE_EMOTION**:\nPlease Add best emotion that speaker should exxpress.keep in mind that there'll be no background music but still video should sound best .ALSO  Allowed emotions are only these :{Excited,Friendly,Serious,Soothing,Broadcaster}.Return only best one without any description or justification.\n\nYOUR OUTPUT SHOULD BE STRICTLY AS PER JSON FORMAT MENTIONED IN OUTPUT PARSER.In output parser \n**Put your generated Scene description,narration,audio mood,caption,voice emotion and hashtags in values of SCENE_DESCRIPTION,NARRATION,AUDIO MOOD,CAPTION,VOICE_EMOTION and HASHTAGS respective keys present in json.**\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1792,
+        336
+      ],
+      "id": "ffcc1af8-4c15-4e1b-b7d5-43bc276b4cb4",
+      "name": "AI Agent6"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1744,
+        528
+      ],
+      "id": "82020cb6-5cd8-45ee-b2c3-e26c0ba4c75e",
+      "name": "OpenAI Chat Model8",
+      "credentials": {
+        "openAiApi": {
+          "id": "rQtjdotAwoEiv1aT",
+          "name": "OpenAi account 13"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Function to extract sections from raw analysis text\nfunction parseAnalysis(text) {\n    const sections = {\n        key_themes: [],\n        emotional_tone: [],\n        quotes: [],\n        central_text: \"\"\n    };\n\n    const lines = text.split('\\n');\n    let currentSection = '';\n\n    for (let line of lines) {\n        line = line.trim();\n        if (!line) continue;\n\n        // Detect section headers\n        if (line.startsWith('### 1. Key Themes')) {\n            currentSection = 'key_themes';\n            continue;\n        }\n        if (line.startsWith('### 2. Emotional Tone')) {\n            currentSection = 'emotional_tone';\n            continue;\n        }\n        if (line.startsWith('### 3. Quotes')) {\n            currentSection = 'quotes';\n            continue;\n        }\n        if (line.startsWith('### 4. Central Text')) {\n            currentSection = 'central_text';\n            continue;\n        }\n\n        // Add line to appropriate section\n        if (currentSection === 'central_text') {\n            sections.central_text += (sections.central_text ? '\\n' : '') + line;\n        } else if (currentSection && line.startsWith('*')) {\n            sections[currentSection].push(line.replace(/^\\*+\\s*/, ''));\n        } else if (currentSection) {\n            sections[currentSection].push(line);\n        }\n    }\n\n    return sections;\n}\n\n// Process all items from the previous node\nreturn $input.all().map(item => {\n    const rawText = item.json.content.parts[0].text;\n    const structured = parseAnalysis(rawText);\n\n    return { json: structured };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1216,
+        336
+      ],
+      "id": "7ba49917-4409-4d98-84f0-202c114ebcfc",
+      "name": "Structured Analysis4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.heygen.com/v2/video/generate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "x-api-key",
+              "value": "apikeysemujhereplacekaro"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n\"test\":true,\n\"caption\": true,\n\"video_inputs\": [\n    {\n      \"character\": {\n        \"type\": \"avatar\",\n        \"avatar_id\":\"657b4cab213a46458f20df5b0c3ff1bd\",\n          \"avatar_style\": \"normal\" \n\n      },\n      \"voice\": {\n        \"type\": \"text\",\n        \"voice_id\": \"71068703d8a84707b6ee0825068c4a26\",\n        \"input_text\":\"{{ JSON.stringify($json.payload.video_inputs[0].voice.input_text).slice(1, -1) }}\",\n        \"speed\":0.9,\n \"emotion\": \"Serious\"\n      },\n      \"background\": {\n        \"type\": \"color\",\n        \"value\": \"#ffffff\"\n      }\n    }\n  ],\n  \"dimension\": {\n    \"width\": 720,\n    \"height\": 1280\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2448,
+        240
+      ],
+      "id": "53a96f4a-9178-425c-90f2-275089325c06",
+      "name": "HTTP Request2",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "url": "=https://api.heygen.com/v1/video_status.get?video_id={{ $json.data.video_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "x-api-key",
+              "value": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3232,
+        -96
+      ],
+      "id": "6ed57fed-05b3-4ebc-9adf-640f5d78505e",
+      "name": "HTTP Request5",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "functionCode": "return items.map(item => {\n  // ---------------------------------------------------------\n  // HELPER: Find value regardless of casing (NARRATION vs narration)\n  // ---------------------------------------------------------\n  // This function looks for the key in item.json AND item.json.output\n  function findValue(keys) {\n    const source = item.json.output && typeof item.json.output === 'object' ? item.json.output : item.json;\n    \n    for (const key of keys) {\n      if (source[key]) return source[key];\n    }\n    return null;\n  }\n\n  // ---------------------------------------------------------\n  // 1. GET DATA (Tries multiple variations)\n  // ---------------------------------------------------------\n  const narration = findValue([\"NARRATION\", \"narration\", \"Narration\"]) || \"Default narration text\"; \n  \n  // Checks SCENE_DESCRIPTION, scene_description, SCENE DESCRIPTION, etc.\n  const sceneDescription = findValue([\"SCENE_DESCRIPTION\", \"scene_description\", \"SCENE DESCRIPTION\"]) || \"\";\n  const audioMood = findValue([\"AUDIO_MOOD\", \"audio_mood\", \"AUDIO MOOD\"]) || \"\";\n  const caption = findValue([\"CAPTION\", \"caption\"]) || \"\";\n  const hashtags = findValue([\"HASHTAGS\", \"hashtags\"]) || \"\";\n\n  // ---------------------------------------------------------\n  // 2. BUILD HEYGEN PAYLOAD\n  // ---------------------------------------------------------\n  const payload = {\n    test: true, \n    avatar_group_id: \"ed5a985859ae41a2a550c8f22017da33\",\n    video_inputs: [\n      {\n        character: {\n          type: \"avatar\",  \n          avatar_id: \"30e929e6638f410697b97f5aeb2a6e17\",\n          avatar_style: \"normal\" \n        },\n        voice: {\n          type: \"text\",\n          voice_id: \"01f98ed43e6140349f47dbd37a416827\",\n          input_text: narration, \n          speed: 1.0\n        },\n        background: {\n            type: \"color\",\n            value: \"#ffffff\"\n        }\n      }\n    ],\n    dimension: {\n      width: 720,\n      height: 1280\n    },\n    meta: {\n      scene_description: sceneDescription,\n      audio_mood: audioMood,\n      caption: caption,\n      hashtags: hashtags,\n      durationSeconds: 20\n    }\n  };\n\n  return {\n    json: payload\n  };\n});"
+      },
+      "name": "Structured Prompts",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        2320,
+        -64
+      ],
+      "id": "ccd9adfa-cf25-456f-9966-a583013dc68c",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Podcast Reel Generation Workflow",
+        "height": 528,
+        "width": 1680,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1616,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "2b2c901d-97e5-4f6a-a65a-785ded47986e",
+      "name": "Sticky Note20"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        3712,
+        576
+      ],
+      "id": "825bfbe3-e7df-4071-a327-0cc9a15d596d",
+      "name": "Merge1",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        4400,
+        352
+      ],
+      "id": "4cebcba2-f8d0-4fd7-bc63-371f0f588caa",
+      "name": "Upload file3",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K3T66V8pJMVlZRky",
+          "name": "Google Drive account 2"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus",
+          "mode": "list",
+          "cachedResultName": "Video Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 972889140,
+          "mode": "list",
+          "cachedResultName": "Created Video(podcast)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus/edit#gid=972889140"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        4112,
+        512
+      ],
+      "id": "2bb5db99-5269-4c43-a4af-1aa2cf080ac7",
+      "name": "Append row in sheet2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "6gr9PW0MIQBffnHC",
+          "name": "Google Sheets account 10"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus",
+          "mode": "list",
+          "cachedResultName": "Video Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 108587855,
+          "mode": "list",
+          "cachedResultName": "Video Data for Posting(Podcast)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus/edit#gid=108587855"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        4336,
+        512
+      ],
+      "id": "192ce62e-16e8-4fd3-b40e-fff71c0afc63",
+      "name": "Append row in sheet3",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "6gr9PW0MIQBffnHC",
+          "name": "Google Sheets account 10"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "sendTo": "tanish.gavtade@quantaltech.ai",
+        "subject": "Approval Request",
+        "message": "=<div style=\"font-family: Arial, sans-serif; color: #222; line-height: 1.6; max-width: 750px; margin: auto; padding: 20px;\">\n\n  <!-- HEADER -->\n  <h2 style=\"\n      margin-bottom: 20px; \n      text-align: center; \n      font-size: 24px; \n      font-weight: 600; \n      color: #333; \n      border-bottom: 2px solid #eee; \n      padding-bottom: 12px;\">\n    Content Approval Request\n  </h2>\n\n  <p style=\"text-align: center; font-size: 15px; color: #555;\">\n    Please review the reel, caption, and hashtags below before approving for posting.\n  </p>\n\n  <!-- REEL PREVIEW -->\n  <div style=\"text-align: center; margin-top: 25px;\">\n    <video \n      src=\"{{ $json.directViewLink }}\" \n      controls \n      style=\"width: 100%; max-width: 400px; border-radius: 12px; border:1px solid #ddd; box-shadow:0 4px 12px rgba(0,0,0,0.1);\">\n    </video>\n    <p style=\"font-size: 12px; color: #777; margin-top: 6px;\">Reel Preview</p>\n  </div>\n\n  <hr style=\"margin: 30px 0; border: none; border-top: 1px solid #eee;\">\n\n  <!-- CAPTION SECTION -->\n  <div style=\"margin-bottom: 30px;\">\n    <strong style=\"\n        font-size: 18px; \n        display: block; \n        margin-bottom: 12px; \n        color: #333; \n        text-align: center;\">\n      Caption:\n    </strong>\n\n    <div style=\"\n        background: #fafafa; \n        padding: 20px; \n        border-radius: 10px; \n        border: 1px solid #e5e5e5; \n        font-size: 16px; \n        color: #333; \n        line-height: 1.7; \n        text-align: center; \n        white-space: pre-wrap; \n        max-width: 650px; \n        margin: 0 auto;\">\n      {{ $json.caption }}\n    </div>\n  </div>\n\n  <!-- HASHTAGS SECTION -->\n  <div style=\"margin-bottom: 30px;\">\n    <strong style=\"\n        font-size: 18px; \n        display: block; \n        margin-bottom: 12px; \n        color: #333; \n        text-align: center;\">\n      Hashtags:\n    </strong>\n\n    <div style=\"\n        background: #fafafa; \n        padding: 20px; \n        border-radius: 10px; \n        border: 1px solid #e5e5e5; \n        font-size: 15px; \n        color: #444; \n        white-space: pre-wrap; \n        text-align: center; \n        line-height: 1.8; \n        max-width: 650px; \n        margin: 0 auto;\">\n      {{ $json.hashtags }}\n    </div>\n  </div>\n\n  <hr style=\"margin: 30px 0; border: none; border-top: 1px solid #eee;\">\n\n  <!-- ACTION SECTION -->\n  <h3 style=\"margin-bottom: 15px; font-size: 18px; font-weight: 600; text-align: center; color: #333;\">\n    Action Required:\n  </h3>\n\n  <p style=\"text-align: center; margin-bottom: 25px; color: #555;\">\n    Please select one of the following actions to proceed.\n  </p>\n\n</div>\n",
+        "approvalOptions": {
+          "values": {
+            "approvalType": "double"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        5536,
+        256
+      ],
+      "id": "1d0af28e-fff3-4243-80f3-b0a37d444268",
+      "name": "Send message and wait for response3",
+      "webhookId": "56f3559e-71f0-44fa-a882-a487c6702813",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Content Approval Loop for Reel",
+        "height": 480,
+        "width": 1456,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        4912,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "c49fa8a6-8390-4f5f-9bd6-88cb1898712e",
+      "name": "Sticky Note24",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "674031ef-6416-4752-9093-01518cb099dd",
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": "=true",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": "={{ false }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        5760,
+        256
+      ],
+      "id": "d546cf60-a38e-4d20-8fe7-2bad1de79f7a",
+      "name": "If5",
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        5312,
+        256
+      ],
+      "id": "6088232d-0692-43db-bf51-d4f3741f71fe",
+      "name": "Limit3",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus",
+          "mode": "list",
+          "cachedResultName": "Video Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 108587855,
+          "mode": "list",
+          "cachedResultName": "Video Data for Posting(Podcast)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus/edit#gid=108587855"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        6160,
+        384
+      ],
+      "id": "32da885b-dd29-455c-b6de-d939eb4b8e4f",
+      "name": "Delete rows or columns from sheet3",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "6gr9PW0MIQBffnHC",
+          "name": "Google Sheets account 10"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus",
+          "mode": "list",
+          "cachedResultName": "Video Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 108587855,
+          "mode": "list",
+          "cachedResultName": "Video Data for Posting(Podcast)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OYPQhrv5XkQrdTbvpLZ0h9LQUg9p_LJxq2mbrdy0Kus/edit#gid=108587855"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        5072,
+        256
+      ],
+      "id": "cfa43359-55b4-4204-a88f-1940d5f9c734",
+      "name": "Posting Data4",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "6gr9PW0MIQBffnHC",
+          "name": "Google Sheets account 10"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Storing the Reel with Captions & Hashtags",
+        "height": 528,
+        "width": 1248,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3344,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "fd8385a4-8f77-4f74-ad13-c09761dc2695",
+      "name": "Sticky Note26",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1b4766df-2a99-4b99-91de-65a4f7c66efb",
+              "name": "image",
+              "value": "https://images.unsplash.com/photo-1761839257874-e56dfa2260cb?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "type": "string"
+            },
+            {
+              "id": "35c6a83a-ede1-4cdf-b610-c3d0ff2126dd",
+              "name": "node",
+              "value": "17841415375304444",
+              "type": "string"
+            },
+            {
+              "id": "8954e95c-6828-46ad-9d66-0be4eaf2291e",
+              "name": "caption",
+              "value": "Post done using n8n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6592,
+        336
+      ],
+      "id": "8913131d-854f-47bc-a6f6-c3058479c139",
+      "name": "Edit Fields",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $json.node }}",
+        "edge": "media",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "image_url",
+                "value": "={{ $json.image }}"
+              },
+              {
+                "name": "caption",
+                "value": "={{ $json.caption }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        6800,
+        336
+      ],
+      "id": "06acb33c-62c7-4250-b23a-05e95f495a1f",
+      "name": "Facebook Graph API",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1cb3ba70-6beb-469c-85a4-4cb61b887464",
+              "name": "container_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7008,
+        336
+      ],
+      "id": "840b08a5-1839-4211-bdf4-583655ad39bd",
+      "name": "Edit Fields1",
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        7216,
+        336
+      ],
+      "id": "db53fc0d-c12e-451a-b8cc-855663b02f4a",
+      "name": "Wait",
+      "webhookId": "3896b9ef-3799-44a9-ac25-e68d32613f91",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "=https://graph.facebook.com/v22.0/{{ $json.container_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "status_code"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        7424,
+        336
+      ],
+      "id": "de13b6dc-90d2-42ed-b8a5-23b96ce7432e",
+      "name": "HTTP Request",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Edit Fields').item.json.node }}",
+        "edge": "media_publish",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "creation_id",
+                "value": "={{ $json.id }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        7600,
+        320
+      ],
+      "id": "88d8a670-604f-43d3-940a-ded2cb660538",
+      "name": "Facebook Graph API1",
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1904,
+        224
+      ],
+      "id": "4b46cc35-f64a-47c4-a69a-cb43894b5401",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "amount": 120
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2912,
+        -96
+      ],
+      "id": "f277f25a-0de5-430e-af7c-00df3e7ae5a0",
+      "name": "Wait1",
+      "webhookId": "49133d7d-633f-4087-9a7f-b2ad61311d01",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\"SCENE_DESCRIPTION\":\"The camera is positioned at eye level, capturing the host in a cozy, softly lit room adorned with subtle decor that suggests warmth and comfort. They wear a comfortable, stylish outfit, fitting the calm and reflective atmosphere. The host takes a deep breath, allowing a moment of stillness before speaking, their eyes radiating sincerity. The backdrop is a serene blend of warm colors and soft textures, suggesting an inviting space. As they speak, their small gestures, like a gentle hand movement, draw the viewer in as if sharing a secret. The scene remains uninterrupted, emphasizing the message of overcoming fear and embracing potential.\\n\",\n\"NARRATION\":\"What if I fall? It's a fear we all carry, isn't it? That tightness in our chests, that hesitation before leaning into the unknown. But my darling, let’s shift that perspective. What if you fly? What if you soar beyond your wildest dreams, find freedom in the leap? Embrace the possibility, for the beauty of life often resides on the other side of fear.\",\n\"AUDIO_MOOD\":\"A soft piano melody plays in the background, its gentle notes ebbing and flowing like a calming sea. The sound of distant birds chirping faintly enhances the feeling of a peaceful morning, inviting introspection and hope while creating a warm, immersive atmosphere\",\n\"CAPTION\":\"Embrace the unknown, for every leap comes with the possibility of soaring. 🦋\",\n\"VOICE_EMOTION\":\"Soothing\",\n\"HASHTAGS\":\"#FearVsPotential #EmbraceTheLeap #Inspiration #Hope #Motivation #InnerStrength #WhatIfYouFly #SelfGrowth #OvercomingFear #BelieveInYourself\"\n\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1968,
+        544
+      ],
+      "id": "5cefaa01-5a5e-49ce-b221-80a5d508e8db",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = {\n    avatar_group_id: \"ed5a985859ae41a2a550c8f22017da33\",\n    video_inputs: [\n      {\n        character: {\n          type: \"avatar\",\n          avatar_id: \"ed5a985859ae41a2a550c8f22017da33\",\n          avatar_style:\"normal\"\n        },\n        voice: {\n          type: \"text\",\n          voice_id: \"01f98ed43e6140349f47dbd37a416827\",\n          input_text: \"narration\",\n          speed: 1.0\n        }\n      }\n    ],\n    dimension: {\n      width: 720,\n      height: 1280\n    }\n}\n    // meta: {\n    //   scene_description: ,\n    //   audio_mood: audioMood,\n    //   durationSeconds: 20,\n    //   // OPTIONAL: if later you want captions in meta just uncomment\n    //   // caption,\n    //   // hashtags\n    // }\n  //};\n\n  return {\n    json: payload\n  }\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2048,
+        -304
+      ],
+      "id": "ac9b7981-a48a-4061-ac32-715783dc62bc",
+      "name": "Code in JavaScript1",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "={{ 'payload' }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2608,
+        -16
+      ],
+      "id": "00935388-cc5b-4b99-85b6-a17992c6ac87",
+      "name": "Split Out",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  // ---------------------------------------------------------\n  // HELPER: Find value regardless of casing (NARRATION vs narration)\n  // ---------------------------------------------------------\n  // This function looks for the key in item.json AND item.json.output\n  function findValue(keys) {\n    const source = item.json.output && typeof item.json.output === 'object' ? item.json.output : item.json;\n    \n    for (const key of keys) {\n      if (source[key]) return source[key];\n    }\n    return null;\n  }\n\n  // ---------------------------------------------------------\n  // 1. GET DATA (Tries multiple variations)\n  // ---------------------------------------------------------\n  const narration = findValue([\"NARRATION\", \"narration\", \"Narration\"]) || \"Default narration text\"; \n  \n  // Checks SCENE_DESCRIPTION, scene_description, SCENE DESCRIPTION, etc.\n  const sceneDescription = findValue([\"SCENE_DESCRIPTION\", \"scene_description\", \"SCENE DESCRIPTION\"]) || \"\";\n  const audioMood = findValue([\"AUDIO_MOOD\", \"audio_mood\", \"AUDIO MOOD\"]) || \"\";\n  const caption = findValue([\"CAPTION\", \"caption\"]) || \"\";\n  const hashtags = findValue([\"HASHTAGS\", \"hashtags\"]) || \"\";\n  const voicetone = findValue([\"VOICE_EMOTION\"]) || \"Friendly\";\n\n  // ---------------------------------------------------------\n  // 2. BUILD HEYGEN PAYLOAD\n  // ---------------------------------------------------------\n  const payload = {\n    test: true, \n    avatar_group_id: \"ed5a985859ae41a2a550c8f22017da33\",\n    video_inputs: [\n      {\n        character: {\n          type: \"avatar\",  \n         // avatar_id: \"30e929e6638f410697b97f5aeb2a6e17\",\n             avatar_id: \"657b4cab213a46458f20df5b0c3ff1bd\",\n          avatar_style: \"normal\" \n        },\n        voice: {\n          type: \"text\",\n          //voice_id: \"01f98ed43e6140349f47dbd37a416827\",\n          voice_id: \"71068703d8a84707b6ee0825068c4a26\",\n          input_text: narration, \n          speed: 1.0\n        },\n        background: {\n            type: \"color\",\n            value: \"#ffffff\"\n        }\n      }\n    ],\n    dimension: {\n      width: 720,\n      height: 1280\n    },\n    meta: {\n      scene_description: sceneDescription,\n      audio_mood: audioMood,\n      caption: caption,\n      hashtags: hashtags,\n      voicetone:voicetone,\n      durationSeconds: 20\n    }\n  };\n\n  return {\n    payload\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2192,
+        224
+      ],
+      "id": "19bc6da0-1293-49f4-87ed-f5abd05daf91",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d0f3a936-4fa9-4acc-857f-57863416b88b",
+              "leftValue": "={{ $json.data.status }}",
+              "rightValue": "completed",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3488,
+        -96
+      ],
+      "id": "812cbdbb-09ca-444b-9d1d-fa86b6a77aa2",
+      "name": "If",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1UjEmks_va1l23DOD25QVWUOKZeDHX-hFGft6nnqGaaI",
+          "mode": "list",
+          "cachedResultName": "Thai-Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UjEmks_va1l23DOD25QVWUOKZeDHX-hFGft6nnqGaaI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1707027827,
+          "mode": "list",
+          "cachedResultName": "Video Data for Posting(Textual)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UjEmks_va1l23DOD25QVWUOKZeDHX-hFGft6nnqGaaI/edit#gid=1707027827"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "directViewLink": "=https://app.heygen.com/videos/{{ $json.data.video_id }}",
+            "caption": "={{ $('AI Agent6').item.json.output.CAPTION }}",
+            "hashtags": "={{ $('AI Agent6').item.json.output.HASHTAGS }}",
+            "fileId": "={{ $json.data.video_id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "fileId",
+              "displayName": "fileId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "directViewLink",
+              "displayName": "directViewLink",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "caption",
+              "displayName": "caption",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "hashtags",
+              "displayName": "hashtags",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3696,
+        240
+      ],
+      "id": "84f6673d-f821-41cd-8be5-87bfcab678e3",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "6gr9PW0MIQBffnHC",
+          "name": "Google Sheets account 10"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Sort by Likes4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by Likes4": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Download Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze video1": {
+      "main": [
+        [
+          {
+            "node": "Structured Analysis4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instagram Hashtag Scraper Node1": {
+      "main": [
+        [
+          {
+            "node": "Data Field Filter2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Video": {
+      "main": [
+        [
+          {
+            "node": "Analyze video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Field Filter2": {
+      "main": [
+        [
+          {
+            "node": "Filter by Likes2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter by Likes2": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent6": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent6",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Analysis4": {
+      "main": [
+        [
+          {
+            "node": "AI Agent6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Prompts": {
+      "main": [
+        []
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet2": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send message and wait for response3": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Delete rows or columns from sheet3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit3": {
+      "main": [
+        [
+          {
+            "node": "Send message and wait for response3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete rows or columns from sheet3": {
+      "main": [
+        [
+          {
+            "node": "Posting Data4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Posting Data4": {
+      "main": [
+        [
+          {
+            "node": "Limit3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Facebook Graph API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Facebook Graph API": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Facebook Graph API1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Instagram Hashtag Scraper Node1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent6",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        []
+      ]
+    },
+    "Split Out": {
+      "main": [
+        []
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "78d2b076f0e389d9df1632cb9d7ea18b0c6366add54d0a93af579b1511a63e95"
+  }
+}
